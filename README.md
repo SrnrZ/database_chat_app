@@ -9,12 +9,13 @@ This Streamlit web application allows users to interact with a SQLite database (
 3. Disconnect upload or clear chat if desired
 
 ### Main Chat Interface
-
+After upload, you are provided with the following function:
 1. Database Overiew Tab, including:
    - Tables of respective database
    - List of relationships between tables
    - ERD (Entity-Relationship Diagram) of the respective database
 
+Additionally providing the API Key lets you interact with the database:
 2. Chat Interface:
    - sfgh
 
