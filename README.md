@@ -16,7 +16,7 @@ This Streamlit web application allows users to interact with a SQLite database (
    - ERD (Entity-Relationship Diagram) of the respective database
 
 2. Chat Interface:
-   - 
+   - sfgh
 
 
 
