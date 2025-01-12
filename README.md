@@ -25,7 +25,17 @@ Additionally providing the API Key lets you interact with the database main chat
    - The response is displayed and added to the chat history.
    - **Besides the final answer, the response displayed also includes the thought and search process of the agent, to make the user aware of the agent's logic. This provides the possibility, to check the answer's validity as well as adjust the syntax of the questions asks for better targeting.**
 
+### Deployment
 
+The application can be run locally via terminal command "streamlit run database_chat_app.py" from the project folder. Besides it has been deployed on streamlit hub under following link: https://databasechatapp-aypn4gqbzxuoh8bw8pcbxr.streamlit.app/.
 
+Necessary libraries:
+- Streamlit (st): For building the web interface.
+- Pandas (pd): For handling data in tabular format.
+- SQLAlchemy (sql): For interacting with the database.
+- LangChain: For creating an AI-powered SQL agent that can process natural language queries.
+- Graphviz: For generating Entity-Relationship Diagrams (ERDs).
+- Tempfile and OS: For handling temporary files and cleanup.
 
-Below is a step-by-step explanation of what the code does:
+### Notes
+The python code has been assembled with heavy usage of claude 3.5 Sonnet as well as Cursor EDI.
