@@ -23,7 +23,12 @@ Additionally providing the API Key lets you interact with the database main chat
 2. Chat Interface:
    - When a user submits a question, the agent processes the query and generates a response.
    - The response is displayed and added to the chat history.
-   - **Besides the final answer, the response displayed also includes the thought and search process of the agent, to make the user aware of the agent's logic. This provides the possibility, to check the answer's validity as well as adjust the syntax of the questions asks for better targeting.**
+   - Besides the final answer, the response displayed also includes the thought and search process of the agent, to make the user aware of the agent's logic. This provides the possibility, to check the answer's validity as well as adjust the syntax of the questions asks for better targeting.
+
+**Notes on Questions**
+- The more open the questions to the agent, the higher the variation of the response.
+- Questions about specific data are best expressed by being as precise as possible, e.g. "Provide the sum of Column_A in Table_C" or "Count the number of tables in the database."
+- In rare cases no answer or an error is being given. In that case, you can just ask the question again to receive an answer. 
 
 ### Deployment
 
@@ -37,5 +42,26 @@ Necessary libraries:
 - Graphviz: For generating Entity-Relationship Diagrams (ERDs).
 - Tempfile and OS: For handling temporary files and cleanup.
 
-### Notes
-The python code has been assembled with heavy usage of claude 3.5 Sonnet as well as Cursor EDI.
+### Agent System Prompt
+
+Following system prompt has been injected:
+
+"""
+You are an intelligent assistant designed to help users interact with a SQLite database. Your primary role is to assist with querying, analyzing, and managing data stored in the database. 
+You can perform tasks such as:
+                            - Writing and executing SQL queries (e.g., SELECT, INSERT, UPDATE, DELETE).
+                            - Retrieving and summarizing data from tables.
+                            - Providing insights or analysis based on the data.
+                            - Assisting with database schema design or modifications.
+                            - Troubleshooting SQL errors or optimizing queries.
+Always ensure the following:
+                            - Confirm the structure of the database (e.g., table names, columns, and relationships) before executing queries.
+                            - Handle sensitive data with care and avoid exposing it unless explicitly requested.
+                            - Explain your steps and provide clear, concise responses.
+                            - If a query is complex, break it down and explain each part.
+                            - If unsure about a request, ask clarifying questions.
+"""
+
+### Ending Notes
+- Neither the API Key nor the Databse file is being copied or saved!
+- The python code has been assembled with heavy usage of claude 3.5 Sonnet as well as Cursor EDI.
