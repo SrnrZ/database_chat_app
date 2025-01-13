@@ -11,15 +11,14 @@ https://databasechatapp-aypn4gqbzxuoh8bw8pcbxr.streamlit.app/
 3. Disconnect upload or clear chat if desired.
 
 ### Main Chat Interface
-After upload, you are provided with the following function:
+**After upload, you are provided with the following function:**
 1. Database Overiew Tab, including:
    - Tables: Displays column information for a selected table.
    - Relationships: Displays foreign key relationships between tables.
-   - ERD: Displays the Entity-Relationship Diagram 
+   - ERD: Displays the Entity-Relationship Diagram.
+2. the main chat interface is displayed only if a database file has been uploaded.
 
-Besides, the main chat interface is displayed only if a database file has been uploaded
-
-Additionally providing the API Key lets you interact with the database main chat interface:
+**Additionally providing the API Key lets you interact with the database main chat interface:**
 
 2. Chat Interface:
    - When a user submits a question, the agent processes the query and generates a response.
