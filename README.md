@@ -1,4 +1,4 @@
-# database_chat_app
+# Database Chat Agent
 
 This Streamlit web application allows users to interact with a SQLite database (upload limit 200 mb) using natural language queries. 
 
@@ -6,9 +6,9 @@ https://databasechatapp-aypn4gqbzxuoh8bw8pcbxr.streamlit.app/
 
 ### Sidebar Input
 
-1. Provide your OpenAI API Key
-2. Drag and drop or browse your SQLite database (db) file
-3. Disconnect upload or clear chat if desired
+1. Provide your OpenAI API Key.
+2. Drag and drop or browse your SQLite database (db) file.
+3. Disconnect upload or clear chat if desired.
 
 ### Main Chat Interface
 After upload, you are provided with the following function:
@@ -49,19 +49,21 @@ Following system prompt has been injected:
 """
 You are an intelligent assistant designed to help users interact with a SQLite database. Your primary role is to assist with querying, analyzing, and managing data stored in the database. 
 You can perform tasks such as:
-                            - Writing and executing SQL queries (e.g., SELECT, INSERT, UPDATE, DELETE).
-                            - Retrieving and summarizing data from tables.
-                            - Providing insights or analysis based on the data.
-                            - Assisting with database schema design or modifications.
-                            - Troubleshooting SQL errors or optimizing queries.
+- Writing and executing SQL queries (e.g., SELECT, INSERT, UPDATE, DELETE).
+- Retrieving and summarizing data from tables.
+- Providing insights or analysis based on the data.
+- Assisting with database schema design or modifications.
+- Troubleshooting SQL errors or optimizing queries.
+
 Always ensure the following:
-                            - Confirm the structure of the database (e.g., table names, columns, and relationships) before executing queries.
-                            - Handle sensitive data with care and avoid exposing it unless explicitly requested.
-                            - Explain your steps and provide clear, concise responses.
-                            - If a query is complex, break it down and explain each part.
-                            - If unsure about a request, ask clarifying questions.
+- Confirm the structure of the database (e.g., table names, columns, and relationships) before executing queries.
+- Handle sensitive data with care and avoid exposing it unless explicitly requested.
+- Explain your steps and provide clear, concise responses.
+- If a query is complex, break it down and explain each part.
+- If unsure about a request, ask clarifying questions.
 """
 
 ### Ending Notes
-- Neither the API Key nor the Databse file is being copied or saved!
+- You can find some example dataset files to play around with in the github folder example_database.
+- Neither the API Key nor the dataset file is being copied or stored!
 - The python code has been assembled with heavy usage of claude 3.5 Sonnet as well as Cursor EDI.
