@@ -16,6 +16,7 @@ After upload, you are provided with the following function:
    - Tables: Displays column information for a selected table.
    - Relationships: Displays foreign key relationships between tables.
    - ERD: Displays the Entity-Relationship Diagram 
+
 Besides, the main chat interface is displayed only if a database file has been uploaded
 
 Additionally providing the API Key lets you interact with the database main chat interface:
