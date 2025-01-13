@@ -20,7 +20,7 @@ https://databasechatapp-aypn4gqbzxuoh8bw8pcbxr.streamlit.app/
 
 **Additionally providing the API Key lets you interact with the database main chat interface:**
 
-2. Chat Interface:
+1. Chat Interface:
    - When a user submits a question, the agent processes the query and generates a response.
    - The response is displayed and added to the chat history.
    - Besides the final answer, the response displayed also includes the thought and search process of the agent, to make the user aware of the agent's logic. This provides the possibility, to check the answer's validity as well as adjust the syntax of the questions asks for better targeting.
