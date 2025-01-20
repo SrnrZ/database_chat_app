@@ -11,12 +11,33 @@ from langchain.agents.agent_types import AgentType
 from langchain_openai import ChatOpenAI
 from langchain.callbacks import StreamlitCallbackHandler
 import graphviz
+import requests
+import io
 
 # Page config
 st.set_page_config(page_title="Database Chat Interface", layout="wide")
 
 # Title
 st.title("💬 Database Chat Interface")
+
+def load_example_database():
+    """Fetch and load the example database from GitHub"""
+    try:
+        # URL of the raw database file
+        url = "https://github.com/SrnrZ/database_chat_app/raw/main/example_database/sqlite-sakila.db"
+        
+        # Fetch the file
+        response = requests.get(url)
+        if response.status_code == 200:
+            # Create a file-like object from the response content
+            db_file = io.BytesIO(response.content)
+            return copy_db_to_temp(db_file)
+        else:
+            st.error("Failed to fetch example database")
+            return None
+    except Exception as e:
+        st.error(f"Error loading example database: {str(e)}")
+        return None
 
 def copy_db_to_temp(uploaded_db):
     """Create a temporary copy of the uploaded database file"""
@@ -28,7 +49,7 @@ def copy_db_to_temp(uploaded_db):
         
         # Copy the uploaded file to the temporary location
         with open(db_path, 'wb') as f:
-            f.write(uploaded_db.getvalue())
+            f.write(uploaded_db.getvalue() if isinstance(uploaded_db, st.runtime.uploaded_file_manager.UploadedFile) else uploaded_db.getbuffer())
         
         return db_path
     except Exception as e:
@@ -110,6 +131,16 @@ with st.sidebar:
     # File upload
     uploaded_file = st.file_uploader("Upload Database File", type=['db'])
     
+    # Example database link and load button
+    
+    if st.button("Load example database (sakila.db)"):
+        db_path = load_example_database()
+        if db_path:
+            st.success("Example database 'sqlite-sakila.db' loaded successfully!")
+            st.session_state['db_path'] = db_path
+        else:
+            st.error("Failed to load example database")
+    
     if uploaded_file is not None:
         db_path = copy_db_to_temp(uploaded_file)
         if db_path:
@@ -118,6 +149,8 @@ with st.sidebar:
             st.session_state['db_path'] = db_path
         else:
             st.error("Failed to load database file")
+
+    st.markdown("<a href='https://github.com/SrnrZ/database_chat_app/tree/main/example_database' style='text-decoration: none'>📚Example database source</a>", unsafe_allow_html=True)
 
 # Only show the main interface if a database has been uploaded
 if 'db_path' in st.session_state:
