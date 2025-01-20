@@ -131,6 +131,7 @@ with st.sidebar:
     # File upload
     uploaded_file = st.file_uploader("Upload Database File", type=['db'])
     
+    st.write("---")
     # Example database link and load button
     
     if st.button("Load example database (sakila.db)"):
